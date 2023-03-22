@@ -1,0 +1,36 @@
+{% if user.is_authenticated %}
+<h1>
+    Welcome {{user.username}}
+</h1>
+{% else %}
+
+<h1>
+    Welcome guest!
+</h1>
+
+{% endif %}
+
+<h1>This is Underdeveloped Site.</h1>
+
+<h1>
+    Stay with us
+</h1>
+
+{% if user.is_authenticated %}
+<form method="" action="logout">
+    {% csrf_token %}
+    
+    <input type="submit" value="Log Out" >
+    
+</form>
+
+{% else %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    
+    <input type="submit" value="Log In" >
+    
+</form>
+
+{% endif %}
