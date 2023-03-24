@@ -11,7 +11,6 @@ def index(request):
         return render(request, 'index.html')
 
 def register(request):
-
     if request.method =='POST':
         username = request.POST['username']
         email = request.POST['email']
@@ -54,4 +53,11 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+def counter(request):
+    posts = [1,2,3,4,5,'tim','tom','john']
+    return render(request,'counter.html', {'posts': posts})
+
+def post(request,pk):
+    return render(request, 'post.html',{'pk':pk})
     
